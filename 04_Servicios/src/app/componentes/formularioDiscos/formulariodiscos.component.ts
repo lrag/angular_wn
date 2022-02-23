@@ -12,7 +12,7 @@ export class FormularioDiscosComponent implements OnInit {
 
   public disco:Disco = new Disco()
 
-  constructor(private servicioDiscos:ServicioDiscos,
+  constructor(
               ruta:ActivatedRoute) { 
     console.log("instanciando FormularioDiscosComponent")
 

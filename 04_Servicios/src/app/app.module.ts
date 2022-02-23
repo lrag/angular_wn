@@ -46,7 +46,6 @@ let rutas:Routes = [
     FormsModule,   //Para el bidirectional binding
     RouterModule.forRoot(rutas)   //Para los router-outlets
   ],
-  //providers: [ ServicioDiscos ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

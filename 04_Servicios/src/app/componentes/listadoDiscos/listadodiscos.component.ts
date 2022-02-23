@@ -14,7 +14,7 @@ export class ListadoDiscosComponent implements OnInit {
 
   public discos:Disco[] = []
 
-  constructor(servicioDiscos:ServicioDiscos) { 
+  constructor() { 
     console.log("instanciando ListadoDiscosComponent")
     this.discos = servicioDiscos.listar()
   }
