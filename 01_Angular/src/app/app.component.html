@@ -1,0 +1,106 @@
+
+<marquee>
+  <h1>Plantillas en Angular</h1>
+</marquee>
+
+<!--Plantillas-->
+<div class="m-4">
+  En una plantilla colocamos el contenido estático directamente con HTML
+</div>
+<br/><br/>
+
+<!--Expresiones-->
+
+<div class="m-4">
+  <b>Expresiones:</b><br/>
+  Las usamos cuando queremos añadir el valor de una variable directamente en un nodo de texto<br>
+</div>
+
+<h2 class="m-4">{{ 100+200 }}</h2>
+
+<h2 class="m-4">{{ "Movida"+" gordísima"}}</h2>
+
+<h2 class="m-4">{{ 500 > 250 }}</h2>
+
+<!--
+Una expresión que no incluya una variable es absurda
+
+Las variables utilizadas en las expresiones normalmente estarán declaradas en el componente
+(como un atributo de la clase)
+También se podrán declarar en la propia plantilla
+-->
+
+<h2 class="m-4">
+  <font color="lightGreen">
+    {{ mensaje }}
+  </font>
+</h2>
+<h2 class="m-4">
+  <font color="lightBlue">
+    {{ numero1 + numero2 }}
+  </font>
+</h2>
+
+<!--
+Eventos:
+(nombre_evento)="llamada_a_la_función()"
+-->
+
+<div class="m-4">
+  <button (click)="insertarDisco()" class="btn btn-primary mr-1">Insertar</button>
+  <button (click)="vaciarFormulario()" class="btn btn-primary mr-1">Vaciar</button>
+</div>
+
+<div class="card m-4">
+  {{ disco.titulo }}
+</div>
+
+<table class="m-4">
+  <tr>
+    <td>Título</td>
+    <td>
+      <!-- Con [(ngModel)] estamos uniendo el VALUE de un elemento de la plantilla con una PROPIEDAD del componente-->
+      <!-- <input class="form-control" id="titulo" type="text" value="{{disco.titulo}}"/> -->
+      <input class="form-control" id="titulo" type="text" [(ngModel)]="disco.titulo"/>
+    </td>
+  </tr>
+  <tr>
+    <td>Grupo</td>
+    <td>
+      <input class="form-control"  type="text" [(ngModel)]="disco.grupo"/>
+    </td>
+  </tr>
+  <tr>
+    <td>Año</td>
+    <td>
+      <input class="form-control"  type="text" [(ngModel)]="disco.year"/>
+    </td>
+  </tr>
+</table>
+
+<div class="row">
+
+  <div class="col-5">
+    <table class="table table-hover table-striped m-4">
+      <tr>
+        <th>Título</th>
+        <th>Grupo</th>
+        <th>Año</th>
+      </tr>
+
+      <tr *ngFor="let disco of discos">
+        <td>{{disco.titulo}}</td>
+        <td>{{disco.grupo}}</td>
+        <td>{{disco.year}}</td>
+      </tr>
+
+      <tr *ngIf="discos.length==0">
+        <td colspan="3">
+          No hay discos en la tabla
+        </td>
+      </tr>      
+
+    </table>
+  </div>
+
+</div>

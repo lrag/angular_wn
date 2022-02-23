@@ -1,0 +1,55 @@
+<script>
+
+
+let coche = {
+  marca     : "FIAT",
+  modelo    : "Uno 45 s",
+  matricula : "M-1234-JP",
+  saludar   : function(){
+    console.log("Hola, soy el coche "+this.marca+" "+this.modelo)
+  }
+}
+  
+  coche.saludar()
+
+let numeros = []
+numeros[0] = 10
+numeros[1] = 20
+numeros[20000] = "TROLOLO"
+
+
+let persona = [ 'Bender', 'NNY', '555' ]
+
+let persona2 = []
+persona2['nombre'] = "Bart"
+persona2['direccion'] = "C/Evergreen Terrace"
+persona2['telefono'] = "555"
+persona2['saludar'] = function(){
+  console.log(this.nombre+"-Multiplicate por 0")
+}
+
+console.log(persona2['nombre'])
+
+//persona2.correoE = 'elbarto@yahoo.com'
+console.log(persona2.direccion)
+console.log(persona2.correoE)
+persona2.saludar()
+
+console.log("----------------------------")
+console.log(persona2)
+
+
+let persona3 = {
+  nombre : "Ringo Starr",
+  direccion : "C/Tal",
+  saludar : function(){
+    console.log(HOLA)
+  }
+}
+
+console.log(persona3)
+
+persona3.telefono = "555"
+
+  
+</script>
