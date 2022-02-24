@@ -12,24 +12,7 @@ import { MenuComponent } from './componentes/menu/menu.component';
 import { PieComponent } from './componentes/pie/pie.component';
 import { ServicioDiscos } from './servicios/servicioDiscos';
 
-let rutas:Routes = [
-  {
-    path : "",
-    component : ListadoDiscosComponent
-  },
-  {
-    path : "discos/listado",
-    component : ListadoDiscosComponent
-  },
-  {
-    path : "discos/formulario",
-    component : FormularioDiscosComponent
-  }, 
-  {
-    path : "discos/formulario/:idDisco",
-    component : FormularioDiscosComponent
-  }, 
-]
+
 
 @NgModule({
   declarations: [
@@ -44,8 +27,28 @@ let rutas:Routes = [
   imports: [
     BrowserModule, //Este está siempre en una aplicación web
     FormsModule,   //Para el bidirectional binding
-    RouterModule.forRoot(rutas)   //Para los router-outlets
+    RouterModule.forRoot(AppModule.rutas)   //Para los router-outlets
   ],
+  //providers: [ServicioDiscos],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  public static rutas:Routes = [
+    {
+      path : "",
+      component : ListadoDiscosComponent
+    },
+    {
+      path : "discos/listado",
+      component : ListadoDiscosComponent
+    },
+    {
+      path : "discos/formulario",
+      component : FormularioDiscosComponent
+    }, 
+    {
+      path : "discos/formulario/:idDisco",
+      component : FormularioDiscosComponent
+    }, 
+  ]
+}

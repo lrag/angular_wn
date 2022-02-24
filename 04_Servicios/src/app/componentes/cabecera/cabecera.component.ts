@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioDiscos } from 'src/app/servicios/servicioDiscos';
 
 @Component({
   selector: 'app-cabecera',

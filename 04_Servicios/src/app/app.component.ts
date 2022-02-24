@@ -8,5 +8,5 @@ import { ServicioDiscos } from './servicios/servicioDiscos';
   //providers: [ ServicioDiscos ],
 })
 export class AppComponent {
-  title = 'Ej04-Servicios';
+
 }

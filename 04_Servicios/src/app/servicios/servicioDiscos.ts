@@ -8,6 +8,7 @@ import { Disco } from "../entidades/disco";
 //-a nivel del módulo
 //-a nivel de un componente
 //-aqui mismo, en el decorador (equivalente a registrarlo a nivel de modulo)
+@Injectable( { providedIn : 'root' } )
 export class ServicioDiscos {
 
     private discos:Disco[] = []
@@ -17,8 +18,8 @@ export class ServicioDiscos {
     }
 
     public listar():Disco[]{
-        //Deberíamos devolver una copia en prodfundidad del array
-        return this.discos
+        //Deberíamos devolver una copia en profundidad del array
+        return this.discos; //JSON.parse(JSON.stringify(this.discos))
     }
 
     public buscarPorId(_id:number):Disco|null{        

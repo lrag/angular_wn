@@ -15,6 +15,7 @@
             <th>Grupo</th>
             <th>Año</th>
             <th>Género</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +24,9 @@
             <td>{{ d.grupo }}</td>
             <td>{{ d.year }}</td>
             <td>{{ d.genero }}</td>
+            <td>
+                <button class="btn btn-primary mr-1" (click)="seleccionar(d._id)">Sel</button>
+            </td>
         </tr>
         <tr *ngIf="discos.length==0">
             <td colspan="4">

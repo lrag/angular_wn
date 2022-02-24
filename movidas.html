@@ -1,55 +1,49 @@
 <script>
 
 
-let coche = {
-  marca     : "FIAT",
-  modelo    : "Uno 45 s",
-  matricula : "M-1234-JP",
-  saludar   : function(){
-    console.log("Hola, soy el coche "+this.marca+" "+this.modelo)
-  }
+/*
+function sumar(s1, s2) {
+  console.log(s1+s2)
+}
+
+sumar(10,20)
+*/
+
+let multiplicar = function(m1,m2){
+  return m1*m2
+}
+
+let sumar = function(s1,s2){
+  return s1+s2
+}
+
+
+function ejecutarCalculo(dato1, dato2, calculo){
+  return calculo(dato1, dato2)
+}
+
+console.log(ejecutarCalculo(10, 20, sumar))
+console.log(ejecutarCalculo(10, 20, multiplicar))
+
+console.log(ejecutarCalculo(10, 20, (n1,n2) => n1-n2))
+
+console.log(ejecutarCalculo(10, 20, (n1,n2) => n1/n2))
+ 
+
+
+let saludar = () => console.log("Hola Radiola")
+
+let mostrar = valor => console.log(valor)
+  
+let multiplicar2 = (m1,m2) => m1*m2
+
+
+let sumar2 = (s1,s2) => {
+  return s1+s2
 }
   
-  coche.saludar()
-
-let numeros = []
-numeros[0] = 10
-numeros[1] = 20
-numeros[20000] = "TROLOLO"
 
 
-let persona = [ 'Bender', 'NNY', '555' ]
-
-let persona2 = []
-persona2['nombre'] = "Bart"
-persona2['direccion'] = "C/Evergreen Terrace"
-persona2['telefono'] = "555"
-persona2['saludar'] = function(){
-  console.log(this.nombre+"-Multiplicate por 0")
-}
-
-console.log(persona2['nombre'])
-
-//persona2.correoE = 'elbarto@yahoo.com'
-console.log(persona2.direccion)
-console.log(persona2.correoE)
-persona2.saludar()
-
-console.log("----------------------------")
-console.log(persona2)
 
 
-let persona3 = {
-  nombre : "Ringo Starr",
-  direccion : "C/Tal",
-  saludar : function(){
-    console.log(HOLA)
-  }
-}
-
-console.log(persona3)
-
-persona3.telefono = "555"
-
-  
 </script>

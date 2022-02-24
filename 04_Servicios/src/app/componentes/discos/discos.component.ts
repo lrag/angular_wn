@@ -12,8 +12,8 @@ export class DiscosComponent implements OnInit {
   public disco:Disco = new Disco()
   public discos:Disco[] 
 
-  constructor() { 
-    
+  constructor(private servicioDiscos:ServicioDiscos) { 
+    this.discos = servicioDiscos.listar()
   }
 
   ngOnInit(): void {
