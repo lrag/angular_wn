@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Persona } from "../entidades/persona";
 
-
 @Injectable( { providedIn : 'root' } )
 export class ServicioMemoria {
 

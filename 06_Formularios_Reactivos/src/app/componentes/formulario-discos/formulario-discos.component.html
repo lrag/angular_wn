@@ -42,8 +42,7 @@ Unimos el formulario con el formGroup del componente con [formGroup]
         <input id="grupo" formControlName="grupo" class="form-control"/>
 
         <div *ngIf="(formulario.get('grupo')?.dirty || formulario.get('grupo')?.touched)">
-            <small class="text-danger"
-                *ngIf="formulario.get('grupo')?.hasError('required')">
+            <small *ngIf="formulario.get('grupo')?.hasError('required')" class="text-danger">
                 El grupo es obligatorio.
             </small>
         </div>

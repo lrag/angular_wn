@@ -41,7 +41,7 @@ export class ListadoUsuariosComponent implements OnInit {
     this.servicioUsuarios.listarUsuarios()
       .subscribe({
         next  : respuesta => this.usuarios=respuesta.data,
-        error :error => console.log(error)
+        error : error => console.log(error)
       })
 
   }

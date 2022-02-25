@@ -6,8 +6,7 @@ import { DiscosService } from 'src/app/servicios/discos.service';
 
 @Component({
   selector: 'app-formulario-discos',
-  templateUrl: './formulario-discos.component.html',
-  //providers: [ DiscosService ]  
+  templateUrl: './formulario-discos.component.html'
 })
 export class FormularioDiscosComponent implements OnInit {
 
@@ -42,11 +41,11 @@ export class FormularioDiscosComponent implements OnInit {
   }
 
   public insertarDisco():void{
-
-    this.formulario.markAllAsTouched()
+    
     console.log("Value:",this.formulario.value)
     if(this.formulario.invalid){
       console.log("Datos invalidos")
+      this.formulario.markAllAsTouched()
       return
     }
 
