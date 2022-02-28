@@ -23,6 +23,7 @@ export class ListadoUsuariosComponent implements OnInit {
   public listarUsuarios():void{
 
     //Con funciones flecha:
+
     /*
     let observable:Observable<any> = this.httpClient.get("https://reqres.in/api/users")
     observable.subscribe(
@@ -36,6 +37,7 @@ export class ListadoUsuariosComponent implements OnInit {
       err => console.log(err)
     )
     */
+    
    
     //Llamando al servicio
     this.servicioUsuarios.listarUsuarios()

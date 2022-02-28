@@ -3,6 +3,7 @@ const https = require("https")
 const Observable = require("rxjs").Observable
 const rxjs = require("rxjs")
 
+
 let observable1 = new Observable(function(subscribers){
     subscribers.next(42)
     subscribers.complete()
@@ -19,28 +20,59 @@ let observable3 = new Observable(function(subscribers){
     subscribers.complete()
 })
 
-rxjs.concat(observable1,observable2,observable3).subscribe({ next: rs => console.log(rs), error: err => console.log(err)})
+/*
+let observable4 = new Observable(function(subscribers){
+    subscribers.next(42)
+    subscribers.next(15)
+    subscribers.next(23)
+    subscribers.complete()
+})
+*/
 
+/*
+rxjs.concat(observable1,observable2,observable3)
+    .subscribe({ 
+        next: rs => console.log(rs),
+        error: err => console.log(err)
+    })*/
 
-rxjs.of(1,2,3,4,5,6)
-.pipe( 
-    rxjs.mergeMap(n => n*10)
-)
-.subscribe({ next: rs => console.log(rs), error: error => console.log(error)})
+//rxjs.of(11,22,33,44,55,66).subscribe(valor => console.log(valor))
 
+//Lo mismo con un observable
+let observable4 = new Observable(function(subscribers){
+        subscribers.next("hola")
+        subscribers.next("que")
+        subscribers.next("andais")
+        subscribers.next("haciendo")
+        subscribers.next("un")
+        subscribers.next("viernes")
+        subscribers.next("por")
+        subscribers.next("la")
+        subscribers.next("tarde")
+        subscribers.complete()
+    })
 
-//process.exit(0)
+observable4
+    .pipe(
+       rxjs.map( palabra => palabra.toUpperCase() ), 
+       rxjs.filter( palabra => palabra.length>=5),
+       rxjs.map( palabra => palabra +"-"+ palabra.length )
+    )
+    .subscribe(valor => console.log(valor))
+   
 
 observable1.pipe(
-        rxjs.mergeMap( rs => {
-            console.log(rs)
-            return observable2
-        }),
-        rxjs.mergeMap( rs => {
-            console.log(rs)
-            return observable3
-        })
+    rxjs.mergeMap( rs => {
+        console.log(rs)
+        return observable2
+    }),
+    rxjs.mergeMap( rs => {
+        console.log(rs)
+        return observable3
+    })
     ).subscribe({ next: rs => console.log(rs), error: err => console.log(err)})
+
+
 
 ///////////////////////////////////
 
@@ -111,20 +143,23 @@ function enviarPeticionRegistrarUsuario(usuario){
 
 }
 
+
 function registrarUsuario(usuario){
 
     return buscarPorCorreoE(usuario.email)
-    .pipe(rxjs.mergeMap(usuarioEncontrado => {
-        if(usuarioEncontrado){
-            throw new Error("Ya existe un usuario con ese correoE")
-        }
-        return enviarPeticionRegistrarUsuario(usuario)
-    }))
+    .pipe(
+        rxjs.mergeMap(usuarioEncontrado => {
+            if(usuarioEncontrado){
+                throw new Error("Ya existe un usuario con ese correoE")
+            }
+            return enviarPeticionRegistrarUsuario(usuario)
+        })
+    )
 
 }
 
 let usuario = {
-    "email": "eve.holt@reqres.in",
+    "email": "eve.holta@reqres.in",
     "password": "pistol"
 }
 

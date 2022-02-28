@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ServicioDiscos } from 'src/app/servicios/servicioDiscos';
 
 @Component({
@@ -7,7 +8,16 @@ import { ServicioDiscos } from 'src/app/servicios/servicioDiscos';
 })
 export class CabeceraComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ruta:ActivatedRoute) {
+
+    console.log("HOLA")
+    
+
+    ruta.url.subscribe(
+      evento => console.log("A VER:",evento)
+    )
+
+  }
 
   ngOnInit(): void {
   }
